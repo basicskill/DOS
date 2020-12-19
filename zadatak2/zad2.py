@@ -1,7 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from scipy.io.wavfile import read
-from scipy.fft import *
 
 Q = 3
 fs = 4400
@@ -15,13 +14,26 @@ x_sampled = x[::fs_original // fs]
 time_sampled  = np.arange(0, len(x_sampled) / fs, 1 / fs)
 
 # Prikaz vremenskih oblika odabranog i ne odabranog signala
-# plt.subplot(2, 1, 1)
-# plt.plot(time_original, x)
-# plt.subplot(2, 1, 2)
-# plt.plot(time_sampled, x_sampled)
-# plt.show()
+plt.subplot(2, 1, 1)
+plt.plot(time_original, x / max(x))
+plt.subplot(2, 1, 2)
+plt.plot(time_sampled, x_sampled / max(x_sampled))
 
-X = fftshift(fft(x))
-freq = fftshift(fftfreq(time_original.shape[-1]))
-plt.plot(freq[len(freq)//2:], abs(X.real[len(X) // 2:]))
+# Furijeova transformacija originalnog signala
+X = np.fft.fft(x) / len(x)
+X = X[range(len(x) // 2)]
+X = abs(X) / max(abs(X))
+
+# Niz frekvencija za Furijeovu transformaciju
+freq = np.arange(len(x) // 2) * fs_original / len(x)
+
+# Poslednji prikaz u bitnom delu spektra
+last_idx = np.where(freq <= 1500)[0][-1]
+
+# Uklanjanje manje bitnih delova spektra
+X[X < 0.4] = None
+
+# Prikaz spektra signala
+plt.figure()
+plt.stem(freq[:last_idx], X[:last_idx])
 plt.show()
