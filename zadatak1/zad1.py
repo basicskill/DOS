@@ -41,14 +41,26 @@ if __name__ == "__main__":
     plt.stem(x, linefmt='gray', markerfmt='D')
     plt.stem(y, linefmt='gray', markerfmt='D')
 
+    # Linearna konvolucija
+    lin = lin_conv(x, y)
+
     # Plot linearne konvolucije, implementirana naspram integrisana
     plt.figure()
     plt.subplot(2, 1, 1)
-    plt.stem(lin_conv(x, y), linefmt='gray', markerfmt='D')
+    plt.stem(lin, linefmt='gray', markerfmt='D')
     plt.subplot(2, 1, 2)
     plt.stem(np.convolve(x, y), linefmt='gray', markerfmt='D')
 
+    # Cirkularnu konvoluciju
+    circ = circ_conv(x, y)
+
     # Cirkularna konvolucija
     plt.figure()
-    plt.stem(circ_conv(x, y), linefmt='gray', markerfmt='D')
+    plt.stem(circ, linefmt='gray', markerfmt='D')
+
+
+    overlap = np.isin(lin, circ)
+    plt.figure()
+    plt.stem(circ, linefmt='gray', markerfmt='D')
+    plt.stem(lin * overlap, linefmt='gray', markerfmt='D')
     plt.show()
