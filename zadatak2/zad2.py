@@ -2,6 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from scipy.io.wavfile import read
 
+# Postavka zadatka
 Q = 3
 fs = 4400
 
@@ -31,7 +32,7 @@ freq = np.arange(len(x) // 2) * fs_original / len(x)
 last_idx = np.where(freq <= 1500)[0][-1]
 
 # Uklanjanje manje bitnih delova spektra
-X[X < 0.4] = None
+# X[X < 0.9] = None
 
 # Prikaz spektra signala
 plt.figure()
