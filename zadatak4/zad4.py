@@ -151,4 +151,4 @@ if __name__ == "__main__":
     plt.title('Spektar na izlazu Elipticnog filtera')
 
     plt.tight_layout()
-    plt.savefig('figures/zad3_filtrirani_spektar.png')
+    plt.savefig('figures/zad4_filtrirani_spektar.png')

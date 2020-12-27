@@ -72,7 +72,7 @@ if __name__ == "__main__":
 
     # b) spektar signal
     plt.figure()
-    plt.stem(freq, abs(X), markerfmt=',')
+    plt.stem(freq, abs(), markerfmt=',')
     plt.xlabel('Frekvancija [Hz]')
     plt.ylabel('FFT')
     plt.title('Originalni spektar')

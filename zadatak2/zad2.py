@@ -51,3 +51,9 @@ if __name__ == "__main__":
     plt.savefig('figures/zad2_spektar.png')
 
     # Trazeni tonovi
+
+    tones = ['D3', 'E3', 'F3', 'G3', 'A3', 'B3', 'C4', 'D4', 'E4', 'F4', 'G4', 'A4', 'B4', 'C5', 'D5']
+    freqs = np.array([146.83, 164.81, 174.61, 196.00, 220.00, 220.00, 246.94, 261.63, 293.66, 329.63, 349.23, 392.00, 440.00, 493.88, 523.25, 587.33])  
+    main_freq = [freq[idx] for idx, f in enumerate(X) if f > 0.8]
+
+    print([tones[np.argmin(abs(freqs - f))] for f in main_freq])
