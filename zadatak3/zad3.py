@@ -143,7 +143,6 @@ if __name__ == "__main__":
     plt.stem(freq, abs(X_ellip), markerfmt=',')
     plt.xlabel('Frekvancija [Hz]')
     plt.ylabel('FFT')
-    plt.title('Originalni spektar')
     plt.title('Spektar na izlazu Elipticnog filtera')
     
     plt.subplot(3, 1, 3)
