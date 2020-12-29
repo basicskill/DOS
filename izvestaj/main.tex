@@ -9,11 +9,42 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{fancyhdr}
+
+\usepackage{listings}
+\usepackage{xcolor}
+% Kod
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
 \pagestyle{fancy}
 \fancyhf{}
 
+
+
 \lhead{13E053DOS - Domaći zadatak}
-\rhead{Lab Labić gggg/bbbb} % Promeniti ime i dodati broj indeksa
+\rhead{Mladen Bašić 2018/0111} % Promeniti ime i dodati broj indeksa
 % U fajlu design/intro.tex promeniti ime i prezime, broj indeksa i uneti parametre, a zatim u svakom zadatku iz foldera exercises uneti rešenja na odgovarajućim mestima. 
 
 \begin{document}
